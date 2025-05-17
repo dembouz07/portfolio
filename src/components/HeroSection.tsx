@@ -29,7 +29,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode }) => {
               Ousseynou Faye
             </h1>
             <h3 className="text-2xl md:text-3xl font-semibold mb-6">
-              Develppeur Logiciel
+              Developpeur Logiciel
             </h3>
             <p className={`text-lg mb-8 max-w-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               Je conçois et développe des logiciels robustes, évolutifs et intuitifs. Passionné par la résolution de problèmes, j’analyse les besoins, structure les fonctionnalités et transforme les idées en applications fiables et performantes. Mon objectif : créer des solutions logicielles qui apportent une vraie valeur aux utilisateurs.            </p>
