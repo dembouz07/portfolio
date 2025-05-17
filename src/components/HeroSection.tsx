@@ -19,10 +19,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode }) => {
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-500/10 rounded-full filter blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto mt-8 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-1/2">
-            <h2 className={`text-xl font-medium mb-2 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+            <h2 className={`text-xl font-medium mt-8 mb-2 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
               Bonjour, je suis
             </h2>
             <h1 className="text-5xl md:text-4xl font-bold mb-4">
