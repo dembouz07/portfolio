@@ -5,6 +5,7 @@ export const skills: Skill[] = [
   { name: "HTML/CSS", level: 5, category: "frontend" },
   { name: "Tailwind CSS", level: 3, category: "frontend" },
   { name: "JavaScript", level: 3, category: "frontend" },
+  { name: "Angular", level: 2, category: "frontend" },
   { name: "TypeScript", level: 2, category: "frontend" },
 
 
@@ -13,6 +14,7 @@ export const skills: Skill[] = [
   { name: "Java", level: 4, category: "backend" },
   { name: "Laravel", level: 3, category: "backend" },
   { name: "PostgreSQL", level: 3, category: "backend" },
+  { name: "API REST", level: 3, category: "backend" },
 
   // Design
   { name: "Figma", level: 4, category: "design" },
