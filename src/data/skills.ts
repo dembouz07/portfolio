@@ -7,12 +7,15 @@ export const skills: Skill[] = [
   { name: "JavaScript", level: 3, category: "frontend" },
   { name: "Angular", level: 2, category: "frontend" },
   { name: "TypeScript", level: 2, category: "frontend" },
+  { name: "Flutter", level: 1, category: "frontend" },
 
 
   // Backend
+  { name: "Laravel", level: 4, category: "backend" },
+  { name: "C#", level: 4, category: "backend" },
   { name: "Php", level: 4, category: "backend" },
   { name: "Java", level: 4, category: "backend" },
-  { name: "Laravel", level: 3, category: "backend" },
+  { name: "Oracle", level: 4, category: "backend" },
   { name: "PostgreSQL", level: 3, category: "backend" },
   { name: "API REST", level: 3, category: "backend" },
 
@@ -21,8 +24,8 @@ export const skills: Skill[] = [
   { name: "UI/UX Design", level: 2, category: "design" },
   
   // Other
+  { name: "Jira", level: 5, category: "other" },
   { name: "Git/GitHub", level: 5, category: "other" },
   { name: "Windev", level: 4, category: "other" },
   { name: "Docker", level: 3, category: "other" },
-  { name: "CI/CD", level: 2, category: "other" }
 ];

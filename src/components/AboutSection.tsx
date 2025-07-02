@@ -36,7 +36,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDarkMode }) => {
               Mon Parcours
             </h3>
             <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              Avec plus de 3 ans d'expérience dans le développement logiciel, j'ai affiné mes compétences à travers différentes technologies et méthodologies. Ma passion pour la création de solutions fonctionnelles et bien structurées me pousse à apprendre et à m'améliorer constamment.
+              Avec plus de 2 ans d'expérience dans le développement logiciel, j'ai affiné mes compétences à travers différentes technologies et méthodologies. Ma passion pour la création de solutions fonctionnelles et bien structurées me pousse à apprendre et à m'améliorer constamment.
             </p>
             <p className={`mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               J'ai débuté mon parcours en tant que développeur front-end, avant d'élargir mon expertise vers le développement back-end et la conception de bases de données. Cette approche complète me permet de concevoir des solutions globales et évolutives, adaptées aux besoins des utilisateurs et des entreprises.
@@ -54,10 +54,6 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDarkMode }) => {
               <div>
                 <h4 className={`font-semibold mb-2 ${isDarkMode ? 'text-gray-200' : 'text-gray-800'}`}>Ville:</h4>
                 <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Dakar, Sénégal</p>
-              </div>
-              <div>
-                <h4 className={`font-semibold mb-2 ${isDarkMode ? 'text-gray-200' : 'text-gray-800'}`}>Disponibilité:</h4>
-                <p className={isDarkMode ? 'text-gray-300' : 'text-gray-600'}>Disponible pour embauche</p>
               </div>
             </div>
             
