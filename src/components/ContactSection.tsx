@@ -207,7 +207,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                         htmlFor="name"
                         className={`block mb-2 text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}
                     >
-                      Nom
+                      Prenom et Nom
                     </label>
                     <input
                         type="text"
