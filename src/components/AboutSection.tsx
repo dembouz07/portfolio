@@ -36,11 +36,12 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDarkMode }) => {
               Mon Parcours
             </h3>
             <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              Avec plus de 2 ans d'expérience dans le développement logiciel, j'ai affiné mes compétences à travers différentes technologies et méthodologies. Ma passion pour la création de solutions fonctionnelles et bien structurées me pousse à apprendre et à m'améliorer constamment.
-            </p>
+              Avec plus de 2 ans d’expérience dans le développement logiciel, j’ai développé une expertise solide couvrant l’ensemble du cycle de vie des applications. J’ai affiné mes compétences à travers diverses technologies, tout en appliquant des méthodologies agiles, notamment Scrum, pour assurer une livraison efficace et de qualité des projets.<br/>
+              Passionné par la création de solutions performantes, maintenables et bien structurées, je m’investis continuellement dans l’apprentissage et l’amélioration de mes compétences, aussi bien techniques qu’organisationnelles.            </p>
             <p className={`mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              J'ai débuté mon parcours en tant que développeur front-end, avant d'élargir mon expertise vers le développement back-end et la conception de bases de données. Cette approche complète me permet de concevoir des solutions globales et évolutives, adaptées aux besoins des utilisateurs et des entreprises.
-            </p>
+              Mon parcours a débuté en tant que développeur Front-End, avant d’évoluer vers le développement Back-End, la conception et la gestion de bases de données, ainsi que le développement Full Stack complet. Cette polyvalence me permet de concevoir des solutions globales, évolutives et centrées utilisateur, tout en participant activement à la planification, au suivi et à la coordination des projets en environnement Agile.<br/>
+
+              Aujourd’hui, je suis capable de collaborer efficacement au sein d’équipes pluridisciplinaires, de contribuer à la définition des besoins fonctionnels, et de transformer ces besoins en solutions logicielles fiables, adaptées aux exigences des entreprises.            </p>
             
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div>
