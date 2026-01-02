@@ -4,8 +4,9 @@ export const skills: Skill[] = [
   // Frontend
   { name: "HTML/CSS", level: 5, category: "frontend" },
   { name: "Tailwind CSS", level: 3, category: "frontend" },
-  { name: "JavaScript", level: 3, category: "frontend" },
-  { name: "Angular", level: 2, category: "frontend" },
+  { name: "Angular", level: 3, category: "frontend" },
+  { name: "React", level: 3, category: "frontend" },
+  { name: "JavaScript", level: 2, category: "frontend" },
   { name: "TypeScript", level: 2, category: "frontend" },
   { name: "Flutter", level: 1, category: "frontend" },
 
