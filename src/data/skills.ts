@@ -21,11 +21,13 @@ export const skills: Skill[] = [
   { name: "API REST", level: 3, category: "backend" },
 
   // Design
+  { name: "Canva", level: 5, category: "design" },
   { name: "Figma", level: 4, category: "design" },
   { name: "UI/UX Design", level: 2, category: "design" },
   
   // Other
-  { name: "Jira", level: 5, category: "other" },
+  { name: "Agile", level: 5, category: "other" },
+  { name: "Scrum", level: 5, category: "other" },
   { name: "Git/GitHub", level: 5, category: "other" },
   { name: "Windev", level: 4, category: "other" },
   { name: "Docker", level: 3, category: "other" },
