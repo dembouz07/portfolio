@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, Github as GitHub, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Github as GitHub, Linkedin, Instagram } from 'lucide-react';
 
 interface ContactSectionProps {
   isDarkMode: boolean;
@@ -107,7 +107,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Téléphone</h3>
-                    <p>+221 77-400-62-35</p>
+                    <p>+221 78-652-02-84</p>
                   </div>
                 </div>
 
@@ -136,7 +136,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                 <h3 className="text-lg font-semibold mb-4">Suivez-Moi</h3>
                 <div className="flex space-x-4">
                   <a
-                      href="#"
+                      href="https://github.com/dembouz07"
                       className={`p-3 rounded-full transition-colors ${
                           isDarkMode
                               ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'
@@ -147,7 +147,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                     <GitHub size={20} />
                   </a>
                   <a
-                      href="#"
+                      href="https://www.linkedin.com/in/ousseynou-faye-489725325/"
                       className={`p-3 rounded-full transition-colors ${
                           isDarkMode
                               ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'
@@ -158,18 +158,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                     <Linkedin size={20} />
                   </a>
                   <a
-                      href="#"
-                      className={`p-3 rounded-full transition-colors ${
-                          isDarkMode
-                              ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'
-                              : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
-                      }`}
-                      aria-label="Twitter"
-                  >
-                    <Twitter size={20} />
-                  </a>
-                  <a
-                      href="#"
+                      href="https://www.instagram.com/ouzfaye7/"
                       className={`p-3 rounded-full transition-colors ${
                           isDarkMode
                               ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'

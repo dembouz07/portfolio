@@ -23,3 +23,17 @@ export interface NavItem {
   label: string;
   href: string;
 }
+
+export interface Competition {
+  id: number;
+  title: string;
+  organizer: string;
+  date: string;
+  rank: string;
+  category: 'hackathon' | 'competition' | 'soutenance' | 'concours';
+  description: string;
+  technologies: string[];
+  achievements?: string[];
+  imageUrl: string;
+  certificateUrl?: string;
+}
