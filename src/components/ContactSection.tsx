@@ -31,7 +31,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
       // Set up EmailJS with your service and template IDs
       const serviceID = 'service_xhedllw'; // Replace with your EmailJS service ID
       const templateID = 'template_9yc2bmn'; // Replace with your EmailJS template ID
-      const userID = 'Lisa6KgS2tlRIzolZ'; // Replace with your EmailJS user ID
+      const userID = 'R0BEFkCTJhttef6EM'; // Replace with your EmailJS user ID
 
       const templateParams = {
         from_name: formData.name,
