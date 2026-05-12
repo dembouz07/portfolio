@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Send, Github as GitHub, Linkedin, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
 
 interface ContactSectionProps {
   isDarkMode: boolean;
@@ -15,7 +15,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,57 +24,30 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setErrorMessage(null);
 
     try {
-      // Set up EmailJS with your service and template IDs
-      const serviceID = 'service_xhedllw'; // Replace with your EmailJS service ID
-      const templateID = 'template_9yc2bmn'; // Replace with your EmailJS template ID
-      const userID = 'R0BEFkCTJhttef6EM'; // Replace with your EmailJS user ID
+      // Créer le lien mailto avec les informations du formulaire
+      const mailtoLink = `mailto:ousinfaye4@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+        `Nom: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
 
-      const templateParams = {
-        from_name: formData.name,
-        reply_to: formData.email,
-        subject: formData.subject,
-        message: formData.message
-      };
+      // Ouvrir le client email
+      window.location.href = mailtoLink;
 
-      // Replace this with actual EmailJS API call
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          service_id: serviceID,
-          template_id: templateID,
-          user_id: userID,
-          template_params: templateParams
-        })
-      });
+      setSubmitSuccess(true);
 
-      if (response.ok) {
-        setSubmitSuccess(true);
-
-        // Reset form after successful submission
+      // Reset form after successful submission
+      setTimeout(() => {
         setFormData({
           name: '',
           email: '',
           subject: '',
           message: ''
         });
-
-        // Reset success message after 5 seconds
-        setTimeout(() => {
-          setSubmitSuccess(null);
-        }, 5000);
-      } else {
-        throw new Error('Failed to send email');
-      }
+        setSubmitSuccess(null);
+      }, 2000);
     } catch (error) {
-      console.error('Error sending email:', error);
-      setErrorMessage('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer plus tard.');
-      setSubmitSuccess(false);
+      console.error('Error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -107,7 +79,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Téléphone</h3>
-                    <p>+221 78-652-02-84</p>
+                    <a href="tel:+221786520284" className="hover:text-blue-500 transition-colors">
+                      +221 78-652-02-84
+                    </a>
                   </div>
                 </div>
 
@@ -117,7 +91,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold mb-1">Email</h3>
-                    <p>ousinfaye4@gmail.com</p>
+                    <a href="mailto:ousinfaye4@gmail.com" className="hover:text-blue-500 transition-colors">
+                      ousinfaye4@gmail.com
+                    </a>
                   </div>
                 </div>
 
@@ -137,6 +113,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                 <div className="flex space-x-4">
                   <a
                       href="https://github.com/dembouz07"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`p-3 rounded-full transition-colors ${
                           isDarkMode
                               ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'
@@ -144,10 +122,12 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                       }`}
                       aria-label="GitHub"
                   >
-                    <GitHub size={20} />
+                    <Github size={20} />
                   </a>
                   <a
                       href="https://www.linkedin.com/in/ousseynou-faye-489725325/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`p-3 rounded-full transition-colors ${
                           isDarkMode
                               ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'
@@ -159,6 +139,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                   </a>
                   <a
                       href="https://www.instagram.com/ouzfaye7/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={`p-3 rounded-full transition-colors ${
                           isDarkMode
                               ? 'bg-gray-800 hover:bg-gray-700 text-gray-300'
@@ -180,13 +162,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
               >
                 {submitSuccess === true && (
                     <div className="mb-6 p-4 rounded-md bg-green-100 text-green-800 animate-fadeIn">
-                      Votre message a été envoyé avec succès. Je vous répondrai dans les plus brefs délais !
-                    </div>
-                )}
-
-                {submitSuccess === false && errorMessage && (
-                    <div className="mb-6 p-4 rounded-md bg-red-100 text-red-800 animate-fadeIn">
-                      {errorMessage}
+                      Votre client email va s'ouvrir avec votre message pré-rempli !
                     </div>
                 )}
 
@@ -294,7 +270,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        Envoi en cours...
+                        Ouverture...
                       </>
                   ) : (
                       <>

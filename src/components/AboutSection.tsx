@@ -59,7 +59,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDarkMode }) => {
             </div>
             
             <a 
-              href="https://www.cv.fr/d/6YmJZQgE81sMgmdzNgKIM4/view"
+              href="https://www.cv.fr/d/20vs2sfdHZW43mm8bQYMJr/view"
               className={`inline-flex items-center px-6 py-3 rounded-md font-medium transition-colors ${
                 isDarkMode 
                   ? 'bg-blue-600 hover:bg-blue-700 text-white' 
