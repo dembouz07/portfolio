@@ -1,10 +1,76 @@
 import React, { useState } from 'react';
 import { ExternalLink, Code } from 'lucide-react';
 import { projects } from '../data/projects';
+import type { Project } from '../types';
+import { useInView } from '../hooks/useInView';
 
 interface ProjectsSectionProps {
   isDarkMode: boolean;
 }
+
+const ProjectCard: React.FC<{ project: Project; isDarkMode: boolean; index: number }> = ({ project, isDarkMode, index }) => {
+  const { ref, inView } = useInView<HTMLDivElement>();
+
+  return (
+    <div
+      ref={ref}
+      style={{ transitionDelay: `${(index % 3) * 120}ms` }}
+      className={`group overflow-hidden rounded-lg shadow-lg transform transition-all duration-700 ease-out hover:-translate-y-2 hover:shadow-2xl ${
+        inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      } ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}
+    >
+      <div className="relative h-64 overflow-hidden">
+        <img
+          src={project.imageUrl}
+          alt={project.title}
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+          <div className="p-4 w-full">
+            <div className="flex justify-end gap-3">
+              <a
+                href={project.link || '#'}
+                className="p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 hover:scale-110 transition-all"
+                aria-label="View code"
+              >
+                <Code size={18} />
+              </a>
+              <a
+                href={project.link || '#'}
+                className="p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 hover:scale-110 transition-all"
+                aria-label="View live project"
+              >
+                <ExternalLink size={18} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="p-6">
+        <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+          {project.title}
+        </h3>
+        <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map(tag => (
+            <span
+              key={tag}
+              className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'
+              }`}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isDarkMode }) => {
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
@@ -43,7 +109,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isDarkMode }) => {
                 : (isDarkMode ? 'bg-gray-800 text-gray-300 hover:bg-gray-700' : 'bg-gray-200 text-gray-700 hover:bg-gray-300')
             }`}
           >
-            All
+            Tous
           </button>
           
           {allTags.map(tag => (
@@ -62,63 +128,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isDarkMode }) => {
         </div>
         
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map(project => (
-            <div 
-              key={project.id}
-              className={`group overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-2 ${
-                isDarkMode ? 'bg-gray-800' : 'bg-white'
-              }`}
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={project.imageUrl} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                  <div className="p-4 w-full">
-                    <div className="flex justify-end gap-3">
-                      <a 
-                        href={project.link || "#"} 
-                        className="p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-colors"
-                        aria-label="View code"
-                      >
-                        <Code size={18} />
-                      </a>
-                      <a 
-                        href={project.link || "#"} 
-                        className="p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-colors"
-                        aria-label="View live project"
-                      >
-                        <ExternalLink size={18} />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className={`text-xl font-bold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                  {project.title}
-                </h3>
-                <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map(tag => (
-                    <span 
-                      key={tag} 
-                      className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-100 text-gray-700'
-                      }`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} isDarkMode={isDarkMode} index={index} />
           ))}
         </div>
       </div>

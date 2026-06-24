@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import { Phone, Mail, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
+
+// EmailJS configuration (https://dashboard.emailjs.com/)
+const EMAILJS_SERVICE_ID = 'service_xhedllw';
+const EMAILJS_TEMPLATE_ID = 'template_9yc2bmn';
+const EMAILJS_PUBLIC_KEY = 'Lisa6KgS2tlRIzolZ';
 
 interface ContactSectionProps {
   isDarkMode: boolean;
@@ -26,26 +32,34 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
     setIsSubmitting(true);
 
     try {
-      // Créer le lien mailto avec les informations du formulaire
-      const mailtoLink = `mailto:ousinfaye4@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-        `Nom: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-      )}`;
+      const templateParams = {
+        from_name: formData.name,
+        reply_to: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      };
 
-      // Ouvrir le client email
-      window.location.href = mailtoLink;
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
 
       setSubmitSuccess(true);
 
       // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+
+      // Reset success message after 5 seconds
       setTimeout(() => {
-        setFormData({
-          name: '',
-          email: '',
-          subject: '',
-          message: ''
-        });
         setSubmitSuccess(null);
-      }, 2000);
+      }, 5000);
     } catch (error) {
       console.error('Error:', error);
     } finally {
@@ -162,7 +176,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
               >
                 {submitSuccess === true && (
                     <div className="mb-6 p-4 rounded-md bg-green-100 text-green-800 animate-fadeIn">
-                      Votre client email va s'ouvrir avec votre message pré-rempli !
+                      Votre message a été envoyé avec succès. Je vous répondrai dans les plus brefs délais !
                     </div>
                 )}
 

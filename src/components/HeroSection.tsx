@@ -15,26 +15,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode }) => {
     >
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent"></div>
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-500/10 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full filter blur-3xl animate-blob"></div>
+        <div className="absolute bottom-20 right-10 w-80 h-80 bg-blue-500/10 rounded-full filter blur-3xl animate-blob" style={{ animationDelay: '4s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto mt-8 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-1/2">
-            <h2 className={`text-xl font-medium mt-8 mb-2 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+            <h2 className={`text-xl font-medium mt-8 mb-2 animate-fade-in-up ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} style={{ animationFillMode: 'both', animationDelay: '0.1s' }}>
               Bonjour, je suis
             </h2>
-            <h1 className="text-5xl md:text-4xl font-bold mb-4">
+            <h1 className="text-5xl md:text-4xl font-bold mb-4 animate-fade-in-up" style={{ animationFillMode: 'both', animationDelay: '0.25s' }}>
               Ousseynou Faye
             </h1>
-            <h3 className="text-2xl md:text-3xl font-semibold mb-6">
-              Developpeur Logiciel
+            <h3 className="text-2xl md:text-3xl font-semibold mb-6 animate-fade-in-up" style={{ animationFillMode: 'both', animationDelay: '0.4s' }}>
+              Developpeur DevOps & Cloud AWS
             </h3>
-            <p className={`text-lg mb-8 max-w-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              Je conçois et développe des logiciels robustes, évolutifs et intuitifs. Passionné par la résolution de problèmes, j’analyse les besoins, structure les fonctionnalités et transforme les idées en applications fiables et performantes. Mon objectif : créer des solutions logicielles qui apportent une vraie valeur aux utilisateurs.            </p>
+            <p className={`text-lg mb-8 max-w-lg animate-fade-in-up ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`} style={{ animationFillMode: 'both', animationDelay: '0.55s' }}>
+              J'automatise, déploie et fiabilise les infrastructures dans le cloud. Spécialisé en DevOps et Cloud AWS, je mets en place des pipelines CI/CD, conteneurise les applications et industrialise le provisionnement avec l'Infrastructure as Code. Mon objectif : accélérer les livraisons tout en garantissant des plateformes scalables, sécurisées et résilientes.            </p>
             
-            <div className="flex gap-6 mb-8">
+            <div className="flex gap-6 mb-8 animate-fade-in-up" style={{ animationFillMode: 'both', animationDelay: '0.7s' }}>
               <a 
                 href="https://github.com/dembouz07/"
                 className={`hover:opacity-80 transition-opacity ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}
@@ -58,7 +58,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode }) => {
               </a>
             </div>
             
-            <div className="flex gap-4">
+            <div className="flex gap-4 animate-fade-in-up" style={{ animationFillMode: 'both', animationDelay: '0.85s' }}>
               <a 
                 href="#projects"
                 className={`px-6 py-2 rounded-md font-medium transition-colors ${
@@ -83,10 +83,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode }) => {
           </div>
           
           <div className="md:w-1/2 flex justify-center">
-            <div className="w-72 h-72 rounded-full overflow-hidden border-4 border-white shadow-xl">
+            <div className="w-72 h-72 rounded-full overflow-hidden border-4 border-white shadow-xl animate-float hover:scale-105 transition-transform duration-500">
               <img 
-                src="https://image.noelshack.com/fichiers/2025/18/2/1745882967-ouz-o.jpg"
-                alt="John Doe" 
+                src="/assets/ouz.jpeg"
+                alt="Ousseynou Faye" 
                 className="w-full h-full object-cover"
               />
             </div>

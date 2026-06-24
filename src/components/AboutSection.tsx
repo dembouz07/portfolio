@@ -24,7 +24,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDarkMode }) => {
             <div className="relative">
               <div className={`absolute inset-0 rounded-lg transform translate-x-3 translate-y-3 ${isDarkMode ? 'bg-blue-500' : 'bg-blue-400'}`}></div>
               <img 
-                src="https://image.noelshack.com/fichiers/2025/18/6/1746299751-ouz-o.jpg"
+                src="/assets/ouz.jpeg"
                 alt="Working at desk" 
                 className="relative rounded-lg z-10"
               />
@@ -36,12 +36,12 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDarkMode }) => {
               Mon Parcours
             </h3>
             <p className={`mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              Avec plus de 2 ans d’expérience dans le développement logiciel, j’ai développé une expertise solide couvrant l’ensemble du cycle de vie des applications. J’ai affiné mes compétences à travers diverses technologies, tout en appliquant des méthodologies agiles, notamment Scrum, pour assurer une livraison efficace et de qualité des projets.<br/>
-              Passionné par la création de solutions performantes, maintenables et bien structurées, je m’investis continuellement dans l’apprentissage et l’amélioration de mes compétences, aussi bien techniques qu’organisationnelles.            </p>
+              Avec plus de 4 ans d’expérience dans l’IT, je me suis orienté vers le DevOps et le Cloud AWS, où j’ai développé une expertise sur l’automatisation, le déploiement continu et l’exploitation d’infrastructures fiables. Je m’appuie sur des méthodologies agiles, notamment Scrum, pour assurer une livraison rapide et de qualité des projets.<br/>
+              Passionné par la culture DevOps, je m’investis continuellement dans l’apprentissage des pratiques d’automatisation, d’observabilité et de sécurité, afin de fiabiliser et d’accélérer le cycle de vie des applications.            </p>
             <p className={`mb-6 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-              Mon parcours a débuté en tant que développeur Front-End, avant d’évoluer vers le développement Back-End, la conception et la gestion de bases de données, ainsi que le développement Full Stack complet. Cette polyvalence me permet de concevoir des solutions globales, évolutives et centrées utilisateur, tout en participant activement à la planification, au suivi et à la coordination des projets en environnement Agile.<br/>
+              Mon parcours a débuté dans le développement logiciel (Front-End, Back-End puis Full Stack), une base solide qui me permet aujourd’hui de mieux comprendre les besoins des équipes de développement et de construire des chaînes de livraison adaptées. J’ai ensuite évolué vers le DevOps et le Cloud : conception de pipelines CI/CD, conteneurisation avec Docker et Kubernetes, Infrastructure as Code avec Terraform et Ansible, et déploiement de plateformes sur AWS.<br/>
 
-              Aujourd’hui, je suis capable de collaborer efficacement au sein d’équipes pluridisciplinaires, de contribuer à la définition des besoins fonctionnels, et de transformer ces besoins en solutions logicielles fiables, adaptées aux exigences des entreprises.            </p>
+              Aujourd’hui, je suis capable de collaborer efficacement au sein d’équipes pluridisciplinaires, d’automatiser le provisionnement et le déploiement des environnements, et de garantir des infrastructures cloud scalables, sécurisées et résilientes, alignées sur les exigences des entreprises.            </p>
             
             <div className="grid grid-cols-2 gap-4 mb-8">
               <div>
@@ -59,7 +59,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isDarkMode }) => {
             </div>
             
             <a 
-              href="https://www.cv.fr/d/20vs2sfdHZW43mm8bQYMJr/view"
+              href="https://www.cv.fr/d/7fjw9ESx1YVFpMS0Jr1Acj/view"
               className={`inline-flex items-center px-6 py-3 rounded-md font-medium transition-colors ${
                 isDarkMode 
                   ? 'bg-blue-600 hover:bg-blue-700 text-white' 

@@ -1,11 +1,13 @@
 import React from 'react';
 import { skills } from '../data/skills';
+import { useInView } from '../hooks/useInView';
 
 interface SkillsSectionProps {
   isDarkMode: boolean;
 }
 
 const SkillsSection: React.FC<SkillsSectionProps> = ({ isDarkMode }) => {
+  const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.2 });
   // Group skills by category
   const skillsByCategory = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) {
@@ -19,7 +21,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ isDarkMode }) => {
     frontend: "Frontend",
     backend: "Backend",
     design: "Design",
-    other: "Other"
+    other: "Autres"
   };
 
   return (
@@ -34,10 +36,10 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ isDarkMode }) => {
           </h2>
           <div className={`w-24 h-1 mx-auto rounded ${isDarkMode ? 'bg-blue-500' : 'bg-blue-600'}`}></div>
           <p className={`mt-4 max-w-2xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-            J'ai de l'expérience avec un large éventail de technologies et d'outils à travers l'ensemble de la pile de développement.          </p>
+            J'ai de l'expérience avec un large éventail de technologies et d'outils DevOps et Cloud, du développement à l'automatisation, au déploiement et à l'exploitation des infrastructures.          </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {Object.entries(skillsByCategory).map(([category, categorySkills]) => (
             <div key={category}>
               <h3 className={`text-xl font-semibold mb-6 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>
@@ -45,7 +47,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ isDarkMode }) => {
               </h3>
               
               <div className="space-y-5">
-                {categorySkills.map(skill => (
+                {categorySkills.map((skill, index) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-1">
                       <span className={isDarkMode ? 'text-gray-300' : 'text-gray-700'}>
@@ -56,15 +58,18 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ isDarkMode }) => {
                       </span>
                     </div>
                     <div 
-                      className={`w-full h-2 rounded-full ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}
+                      className={`w-full h-2 rounded-full overflow-hidden ${isDarkMode ? 'bg-gray-700' : 'bg-gray-200'}`}
                     >
                       <div 
-                        className={`h-full rounded-full ${
+                        className={`h-full rounded-full transition-all duration-1000 ease-out ${
                           category === 'frontend' ? 'bg-blue-500' :
                           category === 'backend' ? 'bg-green-500' :
                           category === 'design' ? 'bg-purple-500' : 'bg-yellow-500'
                         }`}
-                        style={{ width: `${skill.level * 20}%` }}
+                        style={{
+                          width: inView ? `${skill.level * 20}%` : '0%',
+                          transitionDelay: `${index * 80}ms`,
+                        }}
                       ></div>
                     </div>
                   </div>

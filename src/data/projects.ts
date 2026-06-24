@@ -2,6 +2,30 @@ import { Project } from '../types';
 
 export const projects: Project[] = [
   {
+    id: 8,
+    title: "Clean & Net - Application mobile",
+    description: "Application mobile (iOS/iPad) de nettoyage et d'entretien à la demande. Côté clients : description du besoin, devis instantané, signature électronique, suivi des interventions en temps réel et accès aux factures. Côté intervenants : missions géolocalisées, pointage, photos avant/après, check-list qualité et suivi des paiements, avec contrôle qualité assisté par IA.",
+    tags: ["Mobile", "iOS", "App Store"],
+    imageUrl: "/assets/mobile.png",
+    link: "https://apps.apple.com/sn/app/clean-et-net/id6778542126?l=fr-FR"
+  },
+  {
+    id: 7,
+    title: "Clean & Net - Site de nettoyage professionnel",
+    description: "Site vitrine pour une entreprise de nettoyage professionnel en Île-de-France. Il présente les services (bureaux, copropriétés, commerces, fin de chantier, vitrerie, désinfection), les secteurs d'intervention, la méthode en 3 étapes et un système de demande de devis et de rappel.",
+    tags: ["WordPress", "PHP", "CSS", "JS"],
+    imageUrl: "/assets/image.png",
+    link: "https://www.cleanetnet.fr/"
+  },
+  {
+    id: 6,
+    title: "ACADERYM - Plateforme de formation professionnelle",
+    description: "Plateforme web pour un organisme de formation professionnelle premium. Le site présente le catalogue de formations (bâtiment, copropriété, sinistres, commercial, numérique & IA), les formats (intra, inter, distanciel, hybride), la méthode en 5 étapes et un système de demande de devis.",
+    tags: ["WordPress", "PHP", "CSS", "JS", "RGPD"],
+    imageUrl: "/assets/Acaderym.png",
+    link: "https://acaderym.com/"
+  },
+  {
     id: 1,
     title: "Application de Gestion de Projet",
     description: "Cette application permet de gérer les projets de bout en bout avec une organisation flexible et une communication centralisée avec la tracabilité des actions",

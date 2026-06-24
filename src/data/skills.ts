@@ -31,4 +31,9 @@ export const skills: Skill[] = [
   { name: "Git/GitHub", level: 5, category: "other" },
   { name: "Windev", level: 4, category: "other" },
   { name: "Docker", level: 3, category: "other" },
+  { name: "Jenkins", level: 2, category: "other" },
+  { name: "SonarQube", level: 2, category: "other" },
+  { name: "Kubernetes", level: 1, category: "other" },
+  { name: "Terraform", level: 1, category: "other" },
+  { name: "Ansible", level: 1, category: "other" },
 ];
