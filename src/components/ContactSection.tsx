@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { Phone, Mail, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
 
 // EmailJS configuration (https://dashboard.emailjs.com/)
@@ -43,7 +43,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ isDarkMode }) => {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams,
-        EMAILJS_PUBLIC_KEY
+        { publicKey: EMAILJS_PUBLIC_KEY }
       );
 
       setSubmitSuccess(true);
